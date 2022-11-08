@@ -6,10 +6,10 @@ public class StackSearching {
     int position = 0;
     boolean found = false;
 
-    //used to return stack to original state
+    // used to return stack to original state
     ArrayStack sTemp = new ArrayStack(s.size());
 
-    //search
+    // search
     while (!s.isEmpty()) {
       if (s.top() == target) {
         found = true;
@@ -19,10 +19,12 @@ public class StackSearching {
       position++;
     }
 
-    //Return s to its original position
-    while (!sTemp.isEmpty() && !s.isFull()) s.push(sTemp.pop());
+    // Return s to its original position
+    while (!sTemp.isEmpty() && !s.isFull())
+      s.push(sTemp.pop());
 
-    if (!found) position = -1;
+    if (!found)
+      position = -1;
 
     return position;
   }
@@ -38,21 +40,18 @@ public class StackSearching {
     int externalVal = searchFor(s, 12);
 
     System.out.println(
-      12 + ": internally " + internalVal + ", externally: " + externalVal
-    );
+        12 + ": internally " + internalVal + ", externally: " + externalVal);
 
     internalVal = s.search(1);
     externalVal = searchFor(s, 1);
 
     System.out.println(
-      1 + ": internally " + internalVal + ", externally: " + externalVal
-    );
+        1 + ": internally " + internalVal + ", externally: " + externalVal);
 
     internalVal = s.search(20);
     externalVal = searchFor(s, 20);
 
     System.out.println(
-      20 + ": internally " + internalVal + ", externally: " + searchFor(s, 20)
-    );
+        20 + ": internally " + internalVal + ", externally: " + searchFor(s, 20));
   }
 }

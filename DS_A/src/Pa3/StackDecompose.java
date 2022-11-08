@@ -9,12 +9,15 @@ public class StackDecompose {
 
     while (!x.isEmpty()) {
       odd.push(x.pop());
-      if (!x.isEmpty()) even.push(x.pop());
+      if (!x.isEmpty())
+        even.push(x.pop());
     }
 
-    while (!odd.isEmpty()) x.push(odd.pop());
+    while (!odd.isEmpty())
+      x.push(odd.pop());
 
-    while (!even.isEmpty()) y.push(even.pop());
+    while (!even.isEmpty())
+      y.push(even.pop());
     return y;
   }
 
@@ -23,12 +26,14 @@ public class StackDecompose {
     ArrayStack y = new ArrayStack(x.size() / 2);
 
     boolean isOddSized = x.size() % 2 == 1;
-    while (!x.isEmpty()) reverse.push(x.pop());
+    while (!x.isEmpty())
+      reverse.push(x.pop());
 
     while (!reverse.isEmpty()) {
       if (isOddSized) {
         x.push(reverse.pop());
-        if (!reverse.isEmpty()) y.push(reverse.pop());
+        if (!reverse.isEmpty())
+          y.push(reverse.pop());
       } else {
         y.push(reverse.pop());
         x.push(reverse.pop());

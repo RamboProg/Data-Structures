@@ -7,25 +7,27 @@ public class CubeGame {
     int sum1 = 0, sum2 = 0, x = 0;
     ArrayStack temp = new ArrayStack(size);
 
-    //popping the first half
+    // popping the first half
     for (int i = 0; i < size / 2; i++) {
       x = s.pop();
       sum1 += x;
       temp.push(x);
     }
 
-    //in case of an odd-sized stack
-    if (size % 2 == 1) temp.push(s.pop());
+    // in case of an odd-sized stack
+    if (size % 2 == 1)
+      temp.push(s.pop());
 
-    //popping the second half
+    // popping the second half
     for (int i = 0; i < size / 2; i++) {
       x = s.pop();
       sum2 += x;
       temp.push(x);
     }
 
-    //returning back the elements
-    while (!temp.isEmpty()) s.push(temp.pop());
+    // returning back the elements
+    while (!temp.isEmpty())
+      s.push(temp.pop());
 
     return sum1 == sum2;
   }

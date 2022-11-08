@@ -9,9 +9,11 @@ public class LinearArray {
   }
 
   public void insertLast(int x) {
-    if (nItems < a.length) a[nItems++] = x; else System.out.println(
-      "Array full!"
-    );
+    if (nItems < a.length)
+      a[nItems++] = x;
+    else
+      System.out.println(
+          "Array full!");
   }
 
   public void insertFirst(int x) {
@@ -21,26 +23,32 @@ public class LinearArray {
       }
       a[0] = x;
       nItems++;
-    } else System.out.println("Array is full!");
+    } else
+      System.out.println("Array is full!");
   }
 
   public int linearSearch(int x) {
     for (int i = 0; i < nItems - 1; i++) {
-      if (a[i] == x) return i;
+      if (a[i] == x)
+        return i;
     }
     return -1;
   }
 
   public void delete(int x) {
     int pos = linearSearch(x);
-    if (pos == -1) System.out.println("Element not found!"); else {
-      for (int i = pos; i < nItems - 1; i++) a[i] = a[i + 1];
+    if (pos == -1)
+      System.out.println("Element not found!");
+    else {
+      for (int i = pos; i < nItems - 1; i++)
+        a[i] = a[i + 1];
     }
   }
 
   public void display() {
     System.out.println("Array: ");
-    for (int i = 0; i < a.length - 1; i++) System.out.println(a[i] + " ");
+    for (int i = 0; i < a.length - 1; i++)
+      System.out.println(a[i] + " ");
     System.out.println();
   }
 

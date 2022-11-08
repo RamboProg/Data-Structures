@@ -4,14 +4,18 @@ import java.util.Scanner;
 
 public class RemoveElement {
 
-  //Fix it
+  // Fix it
   public static void removeNth(ArrayStack s, int n) {
     ArrayStack temp = new ArrayStack(s.size());
-    while (!s.isEmpty()) temp.push(s.pop());
+    while (!s.isEmpty())
+      temp.push(s.pop());
 
     int count = 2;
     while (!temp.isEmpty()) {
-      if (count == n) temp.pop(); else s.push(temp.pop());
+      if (count == n)
+        temp.pop();
+      else
+        s.push(temp.pop());
     }
   }
 

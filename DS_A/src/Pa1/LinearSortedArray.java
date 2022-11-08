@@ -14,7 +14,8 @@ public class LinearSortedArray {
       while (insertPos < nItems && a[insertPos] < x) {
         insertPos++;
       }
-      for (int i = nItems; i > insertPos; i--) a[i] = a[i - 1];
+      for (int i = nItems; i > insertPos; i--)
+        a[i] = a[i - 1];
 
       a[insertPos] = x;
       nItems++;
@@ -28,8 +29,12 @@ public class LinearSortedArray {
 
     while (lowerLimit <= upperLimit) {
       pos = lowerLimit + ((upperLimit - lowerLimit) / 2);
-      if (a[pos] == x) return pos; else if (x > a[pos]) lowerLimit =
-        pos + 1; else upperLimit = pos - 1;
+      if (a[pos] == x)
+        return pos;
+      else if (x > a[pos])
+        lowerLimit = pos + 1;
+      else
+        upperLimit = pos - 1;
     }
 
     return -1;
@@ -41,19 +46,26 @@ public class LinearSortedArray {
 
   public int binary(int lowerBound, int upperBound, int x) {
     int pos = lowerBound + (upperBound - lowerBound) / 2;
-    if (lowerBound > upperBound) return -1; else if (
-      a[pos] == x
-    ) return pos; else if (x > a[pos]) return binary(
-      pos + 1,
-      upperBound,
-      x
-    ); else return binary(lowerBound, pos - 1, x);
+    if (lowerBound > upperBound)
+      return -1;
+    else if (a[pos] == x)
+      return pos;
+    else if (x > a[pos])
+      return binary(
+          pos + 1,
+          upperBound,
+          x);
+    else
+      return binary(lowerBound, pos - 1, x);
   }
 
   public void delete(int x) {
     int pos = binarySearchIter(x);
-    if (pos == -1) System.out.println("Element not found!"); else {
-      for (int i = pos; i < nItems - 1; i--) a[i] = a[i + 1];
+    if (pos == -1)
+      System.out.println("Element not found!");
+    else {
+      for (int i = pos; i < nItems - 1; i--)
+        a[i] = a[i + 1];
       nItems--;
     }
   }

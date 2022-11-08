@@ -1,1 +1,2 @@
-public class QueuesStuff {}
+public class QueuesStuff {
+}

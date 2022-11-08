@@ -14,7 +14,8 @@ public class StackSortingASC {
         if (temp < min) {
           s2.push(min);
           min = temp;
-        } else s2.push(temp);
+        } else
+          s2.push(temp);
       }
     }
     s.push(temp);

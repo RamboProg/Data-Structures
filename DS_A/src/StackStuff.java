@@ -1,1 +1,2 @@
-public class StackStuff {}
+public class StackStuff {
+}

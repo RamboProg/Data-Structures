@@ -1,1 +1,2 @@
-public class PriorityQueueStuff {}
+public class PriorityQueueStuff {
+}

@@ -53,7 +53,8 @@ public class ArrayStack {
 
   public int search(int x) {
     for (int i = top; i >= 0; i--) {
-      if (stackArray[i] == x) return --i;
+      if (stackArray[i] == x)
+        return --i;
     }
     return -1;
   }

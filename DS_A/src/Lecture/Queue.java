@@ -26,7 +26,8 @@ public class Queue {
   public void enqueue(int k) {
     if (!isFull()) {
       nItems++;
-      if (rear == maxSize - 1) rear = -1;
+      if (rear == maxSize - 1)
+        rear = -1;
       a[++rear] = k;
     }
   }
@@ -36,7 +37,8 @@ public class Queue {
     if (front == maxSize - 1) {
       front = 0;
       return a[maxSize - 1];
-    } else return a[front++];
+    } else
+      return a[front++];
   }
 
   public static void main(String[] args) {
