@@ -1,3 +1,5 @@
+package Lab;
+
 class PriorityQueue {
   private Comparable[] elements;
   private int nItems;

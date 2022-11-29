@@ -1,3 +1,5 @@
+package Lab;
+
 public class StackObj {
 	private Object[] theStack;
 	private int maxSize;

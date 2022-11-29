@@ -1,3 +1,5 @@
+package Lab;
+
 public class QueueObj {
 	private int maxsize;
 	private int front;

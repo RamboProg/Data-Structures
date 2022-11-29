@@ -1,3 +1,5 @@
+package Lab;
+
 public class Palindrome {
 
   public static boolean checkPalindrome(String s) {
