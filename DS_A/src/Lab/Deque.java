@@ -1,3 +1,5 @@
+package Lab;
+
 public class Deque {
   int head;
   int rear;
