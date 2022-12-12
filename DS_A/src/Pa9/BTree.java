@@ -157,6 +157,8 @@ class BTree {
 				"......................................................");
 	}
 
+	// ----------------------------------------------------------------------------//
+
 	// Question 9-3
 	public Comparable maxKey() {
 		int max = 0;
@@ -166,13 +168,6 @@ class BTree {
 				max = (int) current.data;
 			current = current.right;
 		}
-
-		while (current.left != null) {
-			if ((int) current.data > max)
-				max = (int) current.data;
-			current = current.left;
-		}
-
 		return max;
 	}
 
@@ -211,6 +206,106 @@ class BTree {
 		if (curr.left == null && curr.right == null)
 			return 1;
 		return numLeaves(curr.left) + numLeaves(curr.right);
+	}
+
+	public int sum() {
+		return sum(root);
+	}
+
+	public int sum(Node curr) {
+		if (curr == null)
+			return 0;
+		else {
+			int total = ((Integer) curr.data);
+			total += sum(curr.left);
+			total += sum(curr.right);
+			return total;
+		}
+
+	}
+
+	public boolean isBST() {
+		return isBST(root);
+	}
+
+	public boolean isBST(Node curr) {
+		if (curr == null)
+			return true;
+		if (curr.left != null && ((Integer) maxValue(curr.left)).compareTo((Integer) (curr.data)) > 0)
+			return false;
+		if (curr.right != null && ((Integer) minValue(curr.right)).compareTo((Integer) (curr.data)) <= 0)
+			return false;
+
+		return isBST(curr.left) && isBST(curr.right);
+	}
+
+	public Comparable minValue(Node node) {
+		Node current = node;
+		while (current.left != null)
+			current = current.left;
+		return (current.data);
+	}
+
+	public Comparable maxValue(Node node) {
+		Node current = node;
+		while (current.right != null)
+			current = current.right;
+		return (current.data);
+	}
+
+	public int numLeftChildNodes() {
+		return numLeftChildNodes(root);
+	}
+
+	public int numLeftChildNodes(Node n) {
+		if (n == null)
+			return 0;
+		if (n.left != null && n.right == null)
+			return 1 + numLeftChildNodes(n.left);
+		return numLeftChildNodes(n.left) + numLeftChildNodes(n.right);
+	}
+
+	public int countOccur(Comparable key) {
+		return occurRec(key, root);
+	}
+
+	public static int occurRec(Comparable key, Node curr) {
+		if (curr == null)
+			return 0;
+		if (key.compareTo(curr.data) == 0)
+			return 1 + occurRec(key, curr.left) + occurRec(key, curr.right);
+		else
+			return occurRec(key, curr.left) + occurRec(key, curr.right);
+	}
+
+	public boolean hasDups(Comparable key) {
+		if (occurRec(key, root) <= 1)
+			return false;
+		return true;
+	}
+
+	public void mirror() {
+		mirror(root);
+	}
+
+	public static void mirror(Node curr) {
+		if (curr != null) {
+			mirror(curr.left);
+			mirror(curr.right);
+			Node temp = curr.left;
+			curr.left = curr.right;
+			curr.right = temp;
+		}
+	}
+
+	public String oddNodes() {
+		return oddNodes(root);
+	}
+
+	public String oddNodes(Node n) {
+		if (n == null)
+			return "";
+		return (((Integer) n.data).intValue() % 2 != 0 ? (n.data + " ") : "") + oddNodes(n.left) + oddNodes(n.right);
 	}
 
 }
