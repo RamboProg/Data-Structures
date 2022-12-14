@@ -1,5 +1,8 @@
 package Pa9;
 
+import Lab.QueueObj;
+import Lecture.Queue;
+
 class Node {
 
 	public Comparable data;
@@ -306,6 +309,53 @@ class BTree {
 		if (n == null)
 			return "";
 		return (((Integer) n.data).intValue() % 2 != 0 ? (n.data + " ") : "") + oddNodes(n.left) + oddNodes(n.right);
+	}
+
+	public void breadthTraversal() {
+		QueueObj q = new QueueObj(1000);
+		Node curr = root;
+		if (curr != null)
+			q.enqueue(curr);
+
+		while (!q.isEmpty()) {
+			Node temp = (Node) q.dequeue();
+			if (temp.right != null)
+				q.enqueue(temp.right);
+			if (temp.left != null)
+				q.enqueue(temp.left);
+
+			System.out.println(temp.data + " ");
+		}
+	}
+
+	public void printLevel(int lvl) {
+		printLevel(lvl);
+	}
+
+	public void printLevel(Node n, int level) {
+		if (n == null)
+			return;
+		if (level == 0) {
+			System.out.print(n.data + " ");
+		} else {
+			printLevel(n.left, level - 1);
+			printLevel(n.right, level - 1);
+		}
+
+	}
+
+	public static void main(String[] args) {
+		BTree t = new BTree();
+		t.add(150);
+		t.add(95);
+		t.add(92);
+		t.add(111);
+		t.add(175);
+		t.add(166);
+		t.add(200);
+
+		t.printLevel(1);
+
 	}
 
 }
