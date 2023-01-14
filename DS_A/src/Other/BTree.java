@@ -1,3 +1,4 @@
+package Other;
 
 import Lab.QueueObj;
 import Lecture.Queue;

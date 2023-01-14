@@ -1,3 +1,5 @@
+package Other;
+
 public class popAssignment2 {
     int max;
     LinkList l1;
